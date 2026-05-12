@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SEO 指标监控</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div>
+          <strong>SEO 监控</strong>
+          <span>站点健康看板</span>
+        </div>
+      </div>
+
+      <form id="siteForm" class="site-form">
+        <label for="urlInput">监控网址</label>
+        <div class="input-row">
+          <input id="urlInput" name="url" type="url" placeholder="https://example.com" required>
+          <button type="submit" title="添加并检测">+</button>
+        </div>
+      </form>
+
+      <div class="toolbar">
+        <button id="checkAllBtn" type="button">全部检测</button>
+        <button id="exportBtn" type="button">导出 CSV</button>
+      </div>
+
+      <div class="site-list" id="siteList"></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">实时页面审计</p>
+          <h1 id="pageTitle">选择或添加站点</h1>
+        </div>
+        <div class="status-pill" id="statusPill">待检测</div>
+      </header>
+
+      <section class="overview">
+        <div class="score-panel">
+          <div class="score-ring" id="scoreRing" style="--score: 0">
+            <span id="scoreValue">--</span>
+          </div>
+          <div>
+            <h2>综合得分</h2>
+            <p id="scoreHint">添加网址后会检查标题、描述、H1、canonical、移动端、索引状态和速度。</p>
+          </div>
+        </div>
+        <div class="metric-card">
+          <span>状态码</span>
+          <strong id="statusCode">--</strong>
+        </div>
+        <div class="metric-card">
+          <span>加载时间</span>
+          <strong id="loadTime">--</strong>
+        </div>
+        <div class="metric-card">
+          <span>页面字数</span>
+          <strong id="wordCount">--</strong>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>关键指标</h2>
+          </div>
+          <div class="metrics-table" id="metricsTable"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h2>问题提醒</h2>
+            <span id="issueCount">0 项</span>
+          </div>
+          <div class="issues" id="issues"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>历史趋势</h2>
+          <span id="historyMeta">暂无记录</span>
+        </div>
+        <div class="chart" id="historyChart"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
