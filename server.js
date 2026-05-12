@@ -6,6 +6,7 @@ import { extname } from "node:path";
 
 const root = new URL("./public/", import.meta.url);
 const port = Number(process.env.PORT || 4173);
+const host = process.env.HOST || "127.0.0.1";
 const maxBytes = 1024 * 1024 * 2;
 
 const mimeTypes = {
@@ -255,6 +256,6 @@ const server = http.createServer(async (req, res) => {
   res.end("Method not allowed");
 });
 
-server.listen(port, "127.0.0.1", () => {
-  console.log(`SEO monitor running at http://localhost:${port}`);
+server.listen(port, host, () => {
+  console.log(`SEO monitor running at http://${host}:${port}`);
 });

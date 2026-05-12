@@ -29,6 +29,25 @@ Then open:
 http://localhost:4173
 ```
 
+## Deploy
+
+### Render
+
+This repository includes `render.yaml`. Create a new Render Blueprint from the GitHub repository, or create a Web Service with:
+
+- Build command: empty
+- Start command: `npm start`
+- Environment variables:
+  - `HOST=0.0.0.0`
+  - `NODE_ENV=production`
+
+### Docker
+
+```bash
+docker build -t seo-monitor .
+docker run --rm -p 4173:4173 seo-monitor
+```
+
 ## API
 
 Check a URL:
